@@ -1,5 +1,5 @@
 -- [[ KALI LINUX HD-ADMIN INVOKE CMDBAR - FIXED AUDIO & HACKER ICON V8.5 ]] --
--- [[ CREDITS: programmer_V2 & tatitoyo89 - 100% GUARANTEED AUDIO FIX ]] --
+-- [[ CREDITS: programmer_V2 & hack_20k6 - 100% GUARANTEED AUDIO FIX ]] --
 
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -34,21 +34,19 @@ TypingLoopSound.Parent = ScreenGui
 
 -- [ ضمان تشغيل الصوت ] التحميل المسبق للأصوات لعدم حدوث تأخير أو تخطي
 pcall(function()
-ContentProvider:PreloadAsync({BaseClickSound, TypingLoopSound})
+	ContentProvider:PreloadAsync({BaseClickSound, TypingLoopSound})
 end)
 
 local function playClick()
-local soundClone = BaseClickSound:Clone()
-soundClone.Parent = ScreenGui
-soundClone:Play()
-Debris:AddItem(soundClone, 0.5)
+	local soundClone = BaseClickSound:Clone()
+	soundClone.Parent = ScreenGui
+	soundClone:Play()
+	Debris:AddItem(soundClone, 0.5)
 end
 
-
----
-
+------------------------------------------------------------------------
 -- 🛑 [ شاشة الـ TERMINAL الهكر الأسطورية للترحيب ] 🛑
-
+------------------------------------------------------------------------
 local BootFrame = Instance.new("Frame")
 BootFrame.Name = "BootFrame"
 BootFrame.Size = UDim2.new(1, 0, 1, 0)
@@ -64,32 +62,30 @@ TerminalContainer.BackgroundTransparency = 1
 TerminalContainer.Parent = BootFrame
 
 local function createBootLabel(positionY)
-local label = Instance.new("TextLabel")
-label.Size = UDim2.new(1, 0, 0, 20)
-label.Position = UDim2.new(0, 0, 0, positionY)
-label.BackgroundTransparency = 1
-label.Text = ""
-label.TextColor3 = Color3.fromRGB(0, 255, 128)
-label.Font = Enum.Font.Code
-label.TextSize = 14
-label.TextXAlignment = Enum.TextXAlignment.Left
-label.Parent = TerminalContainer
-return label
+	local label = Instance.new("TextLabel")
+	label.Size = UDim2.new(1, 0, 0, 20)
+	label.Position = UDim2.new(0, 0, 0, positionY)
+	label.BackgroundTransparency = 1
+	label.Text = ""
+	label.TextColor3 = Color3.fromRGB(0, 255, 128)
+	label.Font = Enum.Font.Code
+	label.TextSize = 14
+	label.TextXAlignment = Enum.TextXAlignment.Left
+	label.Parent = TerminalContainer
+	return label
 end
 
 -- دالة الكتابة الحية حرفاً بحرف
 local function typeWrite(label, fullText, speed)
-for i = 1, #fullText do
-label.Text = string.sub(fullText, 1, i)
-task.wait(speed or 0.02)
+	for i = 1, #fullText do
+		label.Text = string.sub(fullText, 1, i)
+		task.wait(speed or 0.02)
+	end
 end
-end
 
-
----
-
+------------------------------------------------------------------------
 -- 📦 [ بناء عناصر الواجهة الأساسية ] 📦
-
+------------------------------------------------------------------------
 local MainFrame = Instance.new("Frame")
 MainFrame.Name = "MainFrame"
 MainFrame.Size = UDim2.new(0, 420, 0, 370)
@@ -110,8 +106,8 @@ ToggleIconButton.Position = UDim2.new(0.05, 0, 0.15, 0)
 ToggleIconButton.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
 ToggleIconButton.BorderSizePixel = 2
 ToggleIconButton.BorderColor3 = Color3.fromRGB(0, 255, 128)
-ToggleIconButton.Image = "rbxassetid://10870500995" -- صورة هكر مخصصة وثابتة ومفتوحة للجميع
-ToggleIconButton.ImageColor3 = Color3.fromRGB(0, 255, 128) -- تلوين الأيقونة بالأخضر النيون الماتش مع السكربت
+ToggleIconButton.Image = "rbxassetid://10870500995"
+ToggleIconButton.ImageColor3 = Color3.fromRGB(0, 255, 128)
 ToggleIconButton.Visible = false
 ToggleIconButton.Parent = ScreenGui
 
@@ -154,7 +150,7 @@ local CmdLabel = Instance.new("TextLabel")
 CmdLabel.Size = UDim2.new(1, -30, 0, 20)
 CmdLabel.Position = UDim2.new(0, 15, 0, 40)
 CmdLabel.BackgroundTransparency = 1
-CmdLabel.Text = "kali_cmdbar >_ (Cyber spam)"
+CmdLabel.Text = "kali_cmdbar >_ (Multi-Prefix Support)"
 CmdLabel.TextColor3 = Color3.fromRGB(0, 255, 128)
 CmdLabel.Font = Enum.Font.Code
 CmdLabel.TextSize = 13
@@ -166,7 +162,7 @@ CmdInput.Size = UDim2.new(1, -30, 0, 35)
 CmdInput.Position = UDim2.new(0, 15, 0, 65)
 CmdInput.BackgroundColor3 = Color3.fromRGB(5, 5, 5)
 CmdInput.BorderColor3 = Color3.fromRGB(0, 255, 128)
-CmdInput.Text = "jump"
+CmdInput.Text = ";jump me"
 CmdInput.TextColor3 = Color3.fromRGB(255, 255, 255)
 CmdInput.Font = Enum.Font.Code
 CmdInput.TextSize = 14
@@ -227,20 +223,20 @@ DevTitle.TextXAlignment = Enum.TextXAlignment.Left
 DevTitle.Parent = DevFrame
 
 local function createInfoLine(text, pos, color)
-local line = Instance.new("TextLabel")
-line.Size = UDim2.new(1, -10, 0, 15)
-line.Position = UDim2.new(0, 10, 0, pos)
-line.BackgroundTransparency = 1
-line.Text = text
-line.TextColor3 = color or Color3.fromRGB(180, 180, 180)
-line.Font = Enum.Font.Code
-line.TextSize = 11
-line.TextXAlignment = Enum.TextXAlignment.Left
-line.Parent = DevFrame
+	local line = Instance.new("TextLabel")
+	line.Size = UDim2.new(1, -10, 0, 15)
+	line.Position = UDim2.new(0, 10, 0, pos)
+	line.BackgroundTransparency = 1
+	line.Text = text
+	line.TextColor3 = color or Color3.fromRGB(180, 180, 180)
+	line.Font = Enum.Font.Code
+	line.TextSize = 11
+	line.TextXAlignment = Enum.TextXAlignment.Left
+	line.Parent = DevFrame
 end
 
-createInfoLine("> مطور السكربت : hack_20k6", 23, Color3.fromRGB(0, 255, 128))
-createInfoLine("> ROOT_USER       : tatitoyo89 (SYSTEM_AUTH)", 41, Color3.fromRGB(255, 230, 0))
+createInfoLine("> مطور السكربت : programmer_V2", 23, Color3.fromRGB(0, 255, 128))
+createInfoLine("> ASSISTANT USER  : hack_20k6 (AUTH_GRANTED)", 41, Color3.fromRGB(255, 230, 0))
 createInfoLine("> HARDWARE_TARGET :(MOBILE_OPTIMIZED)", 59, Color3.fromRGB(180, 180, 180))
 createInfoLine("> INFRASTRUCTURE  : LINKED_TO_SIGNALS_CORE // READY", 77, Color3.fromRGB(0, 170, 255))
 
@@ -249,137 +245,143 @@ StatusBar.Size = UDim2.new(1, 0, 0, 20)
 StatusBar.Position = UDim2.new(0, 0, 1, -20)
 StatusBar.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 StatusBar.BorderSizePixel = 0
-StatusBar.Text = " [i] Status: System initialized. Listening."
+StatusBar.Text = " [i] Status: System initialized. Multi-Prefix Ready."
 StatusBar.TextColor3 = Color3.fromRGB(150, 150, 150)
 StatusBar.Font = Enum.Font.Code
 StatusBar.TextSize = 11
 StatusBar.TextXAlignment = Enum.TextXAlignment.Left
 StatusBar.Parent = MainFrame
 
-
----
-
+------------------------------------------------------------------------
 -- 🚀 [ تشغيل الـ Terminal وصوت كتابة الهكر المضمون ] 🚀
-
+------------------------------------------------------------------------
 task.spawn(function()
--- تأخير بسيط لمدة ثانية للتأكد من استقرار محرك الصوت بالكامل فور رصد اللاعب
-task.wait(1)
-
-local l1 = createBootLabel(0)  
-local l2 = createBootLabel(25)  
-local l3 = createBootLabel(50)  
-local l4 = createBootLabel(75)  
-local l5 = createBootLabel(110)  
-local l6 = createBootLabel(135)  
-  
--- تشغيل صوت كيبورد الهكر الترحيبي المستمر  
-TypingLoopSound:Play()  
-  
-typeWrite(l1, "kali@root:~# initializing bypass_protocols.sh...", 0.015)  
-task.wait(0.1)  
-typeWrite(l2, ">> Connecting to HDAdmin Infrastructure Signals... [OK]", 0.008)  
-task.wait(0.1)  
-typeWrite(l3, ">> Injecting RequestCommandSilent Hook... [SUCCESS]", 0.008)  
-task.wait(0.15)  
-  
-l4.TextColor3 = Color3.fromRGB(255, 230, 0)  
-typeWrite(l4, ">> [ACCESS GRANTED] مرحبا بك يا " .. LocalPlayer.Name .. " !!", 0.03)  
-task.wait(0.2)  
-  
-typeWrite(l5, ">> Loading secure core UI modules...", 0.008)  
-typeWrite(l6, ">> SYSTEM STABLE. BOOTING CORE INTERFACE IN 3... 2... 1...", 0.015)  
-task.wait(0.4)  
-  
--- إيقاف وحذف صوت الكيبورد فور انتهاء الترحيب  
-TypingLoopSound:Stop()  
-TypingLoopSound:Destroy()  
-  
--- تدمير شاشة الترحيب وإظهار السكربت والواجهة الأساسية الأيقونة الجديدة  
-BootFrame:Destroy()  
-  
-MainFrame.Visible = true  
-ToggleIconButton.Visible = true  
-  
--- صوت نقرة واحدة مميزة لتأكيد اكتمال فتح الـ GUI  
-playClick()
-
+	task.wait(1)
+	
+	local l1 = createBootLabel(0)  
+	local l2 = createBootLabel(25)  
+	local l3 = createBootLabel(50)  
+	local l4 = createBootLabel(75)  
+	local l5 = createBootLabel(110)  
+	local l6 = createBootLabel(135)  
+	  
+	TypingLoopSound:Play()  
+	  
+	typeWrite(l1, "kali@root:~# initializing bypass_protocols.sh...", 0.015)  
+	task.wait(0.1)  
+	typeWrite(l2, ">> Connecting to HDAdmin Infrastructure Signals... [OK]", 0.008)  
+	task.wait(0.1)  
+	typeWrite(l3, ">> Injecting RequestCommandSilent Hook... [SUCCESS]", 0.008)  
+	task.wait(0.15)  
+	  
+	l4.TextColor3 = Color3.fromRGB(255, 230, 0)  
+	typeWrite(l4, ">> [ACCESS GRANTED] مرحبا بك يا " .. LocalPlayer.Name .. " !!", 0.03)  
+	task.wait(0.2)  
+	  
+	typeWrite(l5, ">> Loading secure core UI modules...", 0.008)  
+	typeWrite(l6, ">> SYSTEM STABLE. BOOTING CORE INTERFACE IN 3... 2... 1...", 0.015)  
+	task.wait(0.4)  
+	  
+	TypingLoopSound:Stop()  
+	TypingLoopSound:Destroy()  
+	  
+	BootFrame:Destroy()  
+	  
+	MainFrame.Visible = true  
+	ToggleIconButton.Visible = true  
+	  
+	playClick()
 end)
 
-
----
-
+------------------------------------------------------------------------
 -- ⚡ [ الوظائف والروابط للـ GUI ] ⚡
-
+------------------------------------------------------------------------
 local function invokeHDCommand(command)
-if not command or command == "" then return end
-if string.sub(command, 1, 1) ~= ";" then
-command = ";" .. command
-end
-if RequestCommandSilent and RequestCommandSilent:IsA("RemoteFunction") then
-pcall(function()
-RequestCommandSilent:InvokeServer(command)
-end)
-end
+	if not command or command == "" then return end
+	
+	-- رصد العلامة الأولى المدخلة بواسطة اللاعب
+	local firstChar = string.sub(command, 1, 1)
+	local allowedPrefixes = { [";"] = true, [":"] = true, ["?"] = true, ["."] = true, ["!"] = true, ["/"] = true, ["+"] = true, ["$"] = true, ["@"] = true }
+	
+	-- إذا لم يكن هناك بادئة من القائمة المسموحة، يتم إجبار السكربت على وضع الفاصلة المنقوطة الافتراضية
+	if not allowedPrefixes[firstChar] then
+		command = ";" .. command
+	end
+
+	if RequestCommandSilent and RequestCommandSilent:IsA("RemoteFunction") then
+		pcall(function()
+			RequestCommandSilent:InvokeServer(command)
+		end)
+	else
+		-- خطة طوارئ بديلة للإرسال عبر الشات العادي إذا تعطل الـ Remote الأساسي لماب معين
+		local ChatService = game:GetService("ReplicatedStorage"):FindFirstChild("DefaultChatSystemChatEvents")
+		if ChatService then
+			local SayMessageRequest = ChatService:FindFirstChild("SayMessageRequest")
+			if SayMessageRequest then
+				pcall(function()
+					SayMessageRequest:FireServer(command, "All")
+				end)
+			end
+		end
+	end
 end
 
 local function toggleGui()
-playClick()
-MainFrame.Visible = not MainFrame.Visible
+	playClick()
+	MainFrame.Visible = not MainFrame.Visible
 end
 
 ToggleIconButton.MouseButton1Click:Connect(toggleGui)
 CloseButton.MouseButton1Click:Connect(function()
-playClick()
-MainFrame.Visible = false
+	playClick()
+	MainFrame.Visible = false
 end)
 
--- عند تعديل النص يدوياً داخل صندوق الأوامر
 CmdInput:GetPropertyChangedSignal("Text"):Connect(function()
-playClick()
+	playClick()
 end)
 
 CmdInput.FocusLost:Connect(function(enterPressed)
-if enterPressed then
-playClick()
-local command = CmdInput.Text
-StatusBar.Text = " [>] Dispatched Core Data: " .. command
-StatusBar.TextColor3 = Color3.fromRGB(0, 255, 128)
-invokeHDCommand(command)
-end
+	if enterPressed then
+		playClick()
+		local command = CmdInput.Text
+		StatusBar.Text = " [>] Dispatched Core Data: " .. command
+		StatusBar.TextColor3 = Color3.fromRGB(0, 255, 128)
+		invokeHDCommand(command)
+	end
 end)
 
 local isSpamming = false
 ToggleButton.MouseButton1Click:Connect(function()
-playClick()
-isSpamming = not isSpamming
+	playClick()
+	isSpamming = not isSpamming
 
-if isSpamming then  
-	ToggleButton.Text = "STOP INVOKE SPAM"  
-	ToggleButton.TextColor3 = Color3.fromRGB(255, 50, 50)  
-	ToggleButton.BorderColor3 = Color3.fromRGB(255, 50, 50)  
-	StatusBar.Text = " [!] FLOODING: Sending RemoteFunction requests..."  
-	StatusBar.TextColor3 = Color3.fromRGB(255, 50, 50)  
-	  
-	task.spawn(function()  
-		while isSpamming do  
-			local command = CmdInput.Text  
-			local delayTime = tonumber(DelayInput.Text) or 0.6  
-			invokeHDCommand(command)  
-			task.wait(delayTime)  
-		end  
-	end)  
-else  
-	ToggleButton.Text = "START SILENT INVOKE SPAM"  
-	ToggleButton.TextColor3 = Color3.fromRGB(0, 255, 128)  
-	ToggleButton.BorderColor3 = Color3.fromRGB(0, 255, 128)  
-	StatusBar.Text = " [i] Status: Paused. Standing by."  
-	StatusBar.TextColor3 = Color3.fromRGB(150, 150, 150)  
-end
-
+	if isSpamming then  
+		ToggleButton.Text = "STOP INVOKE SPAM"  
+		ToggleButton.TextColor3 = Color3.fromRGB(255, 50, 50)  
+		ToggleButton.BorderColor3 = Color3.fromRGB(255, 50, 50)  
+		StatusBar.Text = " [!] FLOODING: Sending Multi-Prefix requests..."  
+		StatusBar.TextColor3 = Color3.fromRGB(255, 50, 50)  
+		  
+		task.spawn(function()  
+			while isSpamming do  
+				local command = CmdInput.Text  
+				local delayTime = tonumber(DelayInput.Text) or 0.6  
+				invokeHDCommand(command)  
+				task.wait(delayTime)  
+			end  
+		end)  
+	else  
+		ToggleButton.Text = "START SILENT INVOKE SPAM"  
+		ToggleButton.TextColor3 = Color3.fromRGB(0, 255, 128)  
+		ToggleButton.BorderColor3 = Color3.fromRGB(0, 255, 128)  
+		StatusBar.Text = " [i] Status: Paused. Standing by."  
+		StatusBar.TextColor3 = Color3.fromRGB(150, 150, 150)  
+	end
 end)
 
 ToggleButton.MouseEnter:Connect(function()
-if not isSpamming then ToggleButton.BackgroundColor3 = Color3.fromRGB(25, 45, 30)
-else ToggleButton.BackgroundColor3 = Color3.fromRGB(45, 20, 20) end
+	if not isSpamming then ToggleButton.BackgroundColor3 = Color3.fromRGB(25, 45, 30)
+	else ToggleButton.BackgroundColor3 = Color3.fromRGB(45, 20, 20) end
 end)
 ToggleButton.MouseLeave:Connect(function() ToggleButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20) end)
